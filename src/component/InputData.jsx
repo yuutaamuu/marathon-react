@@ -26,7 +26,7 @@ const borderR = {
 };
 
 export const InputData = (props) => {
-  const { min, onChangeMin } = props;
+  const { min, sec, onChangeMin, onChangeSec, onClickCul } = props;
   return (
     <div style={style}>
       <p>1kmのタイムを入力してください。</p>
@@ -39,8 +39,15 @@ export const InputData = (props) => {
         onChange={onChangeMin}
       />
       分
-      <input style={borderR} type="number" max="59" min="0" />秒
-      <button>予想する</button>
+      <input
+        style={borderR}
+        type="number"
+        max="59"
+        min="0"
+        value={sec}
+        onChange={onChangeSec}
+      />
+      秒<button onClick={onClickCul}>予想する</button>
     </div>
   );
 };

@@ -8,12 +8,14 @@ const style = {
   fontSize: "1.2em"
 };
 
-export const OutputData = () => {
+export const OutputData = (props) => {
+  const { outHour, outMin, outSec } = props;
   return (
     <div style={style}>
-      <p>フルマラソンの予想は</p>
+      <p>フルマラソンの予想タイムは</p>
       <p>
-        <span>2</span>時間<span>15</span>分<span>30</span>秒です。
+        <span>{outHour}</span>時間<span>{outMin}</span>分<span>{outSec}</span>
+        秒です。
       </p>
     </div>
   );
