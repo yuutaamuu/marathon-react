@@ -33,7 +33,7 @@ export const App = () => {
     allSec = allSec % 60;
 
     //秒
-    const lastSec = allSec + newSec;
+    let lastSec = allSec + newSec;
 
     //時間と分の計算
     newMin = Math.floor(newMin);
@@ -42,9 +42,14 @@ export const App = () => {
     let lastHours = newMin / 60;
 
     newMin = lastHours - Math.floor(lastHours);
-    newMin = Math.round(60 * newMin);
+    newMin = Math.floor(60 * newMin);
 
-    const lastMin = newMin;
+    let lastMin = newMin;
+    if (lastSec >= 60) {
+      lastSec = lastSec - 60;
+      lastMin = lastMin + 1;
+    }
+
     lastHours = Math.floor(lastHours);
 
     setOutHour(lastHours);
